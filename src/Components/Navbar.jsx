@@ -1,11 +1,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "./useAuth";
 
 function Navbar() {
   const navlinkclass = ({ isActive }) =>
     isActive
       ? "text-orange-700 font-bold"
       : "text-black";
+
+      const auth=useAuth()
 
   return (
     <nav className="md:flex bg-gray-200 justify-between p-4 items-center">
@@ -31,11 +34,23 @@ function Navbar() {
         <li>
           <NavLink className={navlinkclass} to="/product">Product</NavLink>
         </li>
+        <li>
+          <NavLink className={navlinkclass} to="/profile">Profile</NavLink>
+        </li>
       </ul>
 
+      <div className="flex gap-4  justify-center items-center">
+        {
+        !auth.user &&(<NavLink className={navlinkclass} to="/login">Log In</NavLink>)
+      }
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
         Get Started
       </button>
+      </div>
+
+      
+
+      
 
     </nav>
   );

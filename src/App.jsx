@@ -12,10 +12,15 @@ import FeaturedProduct from "./Components/FeaturedProduct";
 import NewProduct from "./Components/NewProduct";
 import Users from "./Components/Users";
 import Userdetail from "./Components/Userdetail";
+import Profile from "./Components/Profile";
+
+import Login from "./Components/Login";
+import RequiredAuth from "./Components/RequiredAuth";
+import { AuthProvider } from "./Components/Auth";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,9 +37,11 @@ function App() {
           <Route path="users" element={<Users/>}/>
           <Route path="users/:userid" element={<Userdetail/>}/>
           
+          <Route path="profile" element={<RequiredAuth><Profile/></RequiredAuth>}/>
+          <Route path="login" element={<Login/>}/>
         <Route path="*" element={<NoMatch/>}/>
       </Routes>
-    </div>
+    </AuthProvider>
   );
 }
 
