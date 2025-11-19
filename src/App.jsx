@@ -29,7 +29,7 @@ function App() {
 
         <Route path="/order-summary" element={<Ordersummary/>}/>
         <Route path="/product" element={<Product/>}>
-        <Route index element={<FeaturedProduct/>}/>
+          <Route index element={<FeaturedProduct/>}/>
           <Route path='featured' element={<FeaturedProduct/>}/>
           <Route path="new" element={<NewProduct/>}/>
         </Route>
@@ -40,7 +40,7 @@ function App() {
           <Route path="profile" element={<RequiredAuth><Profile/></RequiredAuth>}/>
           <Route path="login" element={<Login/>}/>
         <Route path="*" element={<NoMatch/>}/>
-      </Routes>
+      </Routes> 
     </AuthProvider>
   );
 }

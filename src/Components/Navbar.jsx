@@ -10,6 +10,14 @@ function Navbar() {
 
       const auth=useAuth()
 
+      const items=[{id:1, name:"Home", link:'/'},
+        {id:2, name:"About", link:'/about'},
+        {id:3, name:"Contact", link:'/contact'},
+        {id:4, name:"Product", link:'/product'},
+        {id:5, name:"Profile", link:'/profile'}
+
+      ]
+
   return (
     <nav className="md:flex bg-gray-200 justify-between p-4 items-center">
       
@@ -22,7 +30,14 @@ function Navbar() {
       </Link>
 
       <ul className="flex gap-4 items-center">
-        <li>
+
+          {items.map((item)=>(
+            <li key={item.id}>
+              <NavLink className={navlinkclass} to={item.link}>{item.name}</NavLink >
+            </li>
+        ))}
+
+        {/* <li>
           <NavLink className={navlinkclass} to="/">Home</NavLink>
         </li>
         <li>
@@ -36,7 +51,7 @@ function Navbar() {
         </li>
         <li>
           <NavLink className={navlinkclass} to="/profile">Profile</NavLink>
-        </li>
+        </li> */}
       </ul>
 
       <div className="flex gap-4  justify-center items-center">
